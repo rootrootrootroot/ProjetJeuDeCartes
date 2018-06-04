@@ -1,12 +1,32 @@
-package jeu.classes;
+package jeu.domaine;
 
 public class Carte {
 
+	//Classe Deck
 	Deck deck; 
+	
+	
+	//variable de la classe Carte 
 	int noCarte;
 	String nomCarte;
 	int puissance;
 	
+	//functions Cartes
+	public String getNomCarte() {
+		return nomCarte;
+	}
+	public void setNomCarte(String nomCarte) {
+		this.nomCarte = nomCarte;
+	}
+	public int getPuissance() {
+		return puissance;
+	}
+	public void setPuissance(int puissance) {
+		this.puissance = puissance;
+	}
+	
+	
+	//Functions Decks
 	public Deck getDeck() {
 		return deck; 
 	}
@@ -21,18 +41,8 @@ public class Carte {
 		this.noCarte = noDeck;
 	}
 	
-	public String getNomCarte() {
-		return nomCarte;
-	}
-	public void setNomCarte(String nomCarte) {
-		this.nomCarte = nomCarte;
-	}
-	public int getPuissance() {
-		return puissance;
-	}
-	public void setPuissance(int puissance) {
-		this.puissance = puissance;
-	}
+	
+	//Affichage 
 	@Override
 	public String toString() {
 		
