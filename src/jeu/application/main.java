@@ -54,32 +54,35 @@ public class main {
 	
 	// CREATE NOUVEAU MATCH_______________________________________________________________________________________________________________________
 	
-		Scanner sc = new Scanner(System.in);
+		Scanner sc4 = new Scanner(System.in);
 		System.out.println("Voulez-vous creer un match ? oui(1)/non(2) ");
-		int reponse = sc.nextInt();
+		int reponse = sc4.nextInt();
 		if(reponse==1) {
 			DemandeMatch demandeMatch = new DemandeMatchIMPL();
-			Scanner sc4 = new Scanner(System.in);
-			System.out.println("entrez le numero du match : "); // à incrémenter une fois la base de donnée créée
-			int noMatch = sc4.nextInt();
 			Scanner sc5 = new Scanner(System.in);
+			System.out.println("entrez le numero du match : "); // à incrémenter une fois la base de donnée créée
+			int noMatch = sc5.nextInt();
+			Scanner sc6 = new Scanner(System.in);
 			System.out.println("Veuillez entrer la date du match dd/MM/yyyy ");// attention exception 
-			String dateMatch = sc5.nextLine();
+			String dateMatch = sc6.nextLine();
 			Match match = demandeMatch.creerMatch(noMatch, dateMatch);
 			
 			System.out.println("le match a ete cree et commencera le : " + dateMatch );
 			
-			Scanner sc6 = new Scanner(System.in);
-			System.out.println("Donnez le nom du premier joueur");
-			Scanner nom1 = new Scanner(System.in);
-			
 			Scanner sc7 = new Scanner(System.in);
+			System.out.println("Donnez le nom du premier joueur");
+			String nom1 = sc7.nextLine();
+			
+			Scanner sc8 = new Scanner(System.in);
 			System.out.println("Donnez le nom du deuxieme joueur");
-			Scanner nom2 = new Scanner(System.in);
-			Joueur joueur1 = demandeMatch.findJoueur("Asmae");
-			Joueur joueur2 = demandeMatch.findJoueur("Guillaume");
+			String nom2 = sc8.nextLine();
+			
+			Joueur joueur1 = demandeMatch.findJoueur(nom1);
+			Joueur joueur2 = demandeMatch.findJoueur(nom2);
 			demandeMatch.addJoueur(joueur1, joueur2, match);
-//_______________________________________________________________________________________________________________________________________________________________			
+			
+			System.out.println("Le match opposera les joueurs suivant: " + nom1 + " ,"+nom2);
+//__________________________________________________________________________________________________________________________________________________________			
 			
 			
 		
