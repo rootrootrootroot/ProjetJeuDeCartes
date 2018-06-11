@@ -1,17 +1,15 @@
 package jeu.application;
 
-import jeu.application.*;
+//import jeu.application.*;
 import jeu.domaine.*;
 import java.util.*;
 
 
 public class CreationDeckIMPL implements CreationDeck {
 	
-	//Entrer nom du joueur et nom du deck
 
-	Collection<Deck> decks= new ArrayList<Deck>();
 	@Override
-	public  void  addDeck(String nomDeck, String nomJoueur) {
+	public  Deck addDeck(String nomDeck, String nomJoueur) {
 		Deck deck = new Deck();
 		deck.setNomDeck(nomDeck);
 		Joueur joueur = new Joueur();
@@ -19,11 +17,22 @@ public class CreationDeckIMPL implements CreationDeck {
 		deck.setJoueur(joueur);
 		joueur.setDeck(deck);
 		
+		return deck;
+	}
+	
+
+	@Override 
+	public Deck creerDeck(int noDeck, String nomDeck, int nbCarte ) {
+		Deck deck = new Deck();
+		deck.setNoDeck(noDeck);
+		deck.setNomDeck(nomDeck);
+		deck.setNbCarte(nbCarte);
+		return deck;
 	}
 
 	@Override
-	public boolean addCarte(String nomCarte, Deck deck) {
-		// TODO Auto-generated method stub
+	public boolean addCarte(Carte carte, Deck deck) {
+		deck.addCarte(carte);
 		return false;
 	}
 
@@ -38,13 +47,11 @@ public class CreationDeckIMPL implements CreationDeck {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override 
-	public Deck creerDeck(int noDeck, String nomDeck, int nbCarte ) {
-		Deck deck = new Deck();
-		deck.setNoDeck(noDeck);
-		deck.setNomDeck(nomDeck);
-		deck.setNbCarte(nbCarte);
-		return deck;
+	
+	@Override
+	public Deck findDeck(String nomDeck) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
