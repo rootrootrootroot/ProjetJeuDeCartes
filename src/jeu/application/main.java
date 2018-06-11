@@ -11,6 +11,9 @@ public class main {
 		boolean finBl=false;
 		boolean finBl1=false;
 		int noDeck=1;
+		
+// CREATE NOUVELLE UTILISATEUR DECK CARTES_______________________________________________________________________________________________________________________
+		
 		while(finBl==false) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Veuillez entrer votre pseudo :");
@@ -41,11 +44,9 @@ public class main {
 					}
 				}
 			noDeck+=1;
-			finBl=true;
-			
+			finBl=true;		
+			}
 		}
-		
-		
-	}
+//_______________________________________________________________________________________________________________________________________________________________
 
 }
