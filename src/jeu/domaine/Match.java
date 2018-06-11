@@ -54,7 +54,11 @@ public class Match {
 			this.joueurs = joueurs;
 			
 		}
-		public void addJoueur(Joueur joueur) {
+		public void addJoueur1(Joueur joueur) {
+			joueurs.add(joueur);
+			joueur.setMatch(this);
+		}
+		public void addJoueur2(Joueur joueur) {
 			joueurs.add(joueur);
 			joueur.setMatch(this);
 		}
