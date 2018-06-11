@@ -7,8 +7,7 @@ public class Joueur {
 	
 	//appel de la fonction match et Joueur
 	Match match  ; 
-	Joueur joueur;
-	
+	Deck deck;
 	// création de la collection decks 
 	Collection<Deck> decks= new ArrayList<Deck>();
 	//variable JOueur 
@@ -18,13 +17,19 @@ public class Joueur {
 	int nbDefaite;
 	int nbNull;
 	
-	public Joueur getJoueur() {
-		return joueur;
-	}
-	public void setJoueur(Joueur joueur) {
-		this.joueur = joueur;
-	}
 	
+	public Deck getDeck() {
+		return deck;
+	}
+
+	public void setDeck(Deck deck) {
+		this.deck = deck;
+	}
+
+	public void setDecks(Collection<Deck> decks) {
+		this.decks = decks;
+	}
+
 	public int getNoJoueur() {
 		return noJoueur;
 	}
