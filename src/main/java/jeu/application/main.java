@@ -1,18 +1,27 @@
-package jeu.application;
+/*package jeu.application;
 
 import jeu.domaine.*;
 import java.util.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.text.ParseException;
 
 
+
 public class main {
-	
+
 	public static void main(String[] args) {
 		try {
 		boolean finBl=false;
 		boolean finBl1=false;
 		int noDeck=1;
-		
+		@Autowired
+		CartesRepository carteRepository;
+		@Autowired
+		DeckRepository deckRepository;
+		@Autowired
+		MatchRepository matchRepository;
 // CREATE NOUVELLE UTILISATEUR DECK CARTES_______________________________________________________________________________________________________________________
 		
 		while(finBl==false) {
@@ -24,7 +33,7 @@ public class main {
 			System.out.println("Veuillez entrer le nom de votre deck :");
 			String nomDeck = sc1.nextLine();
 			
-			CreationDeck creationDeck = new CreationDeckIMPL();
+			CreationDeck creationDeck = new CreationDeckIMPL(deckRepository);
 			Deck deck = creationDeck.addDeck(nomDeck, nomJoueur);
 			System.out.println(nomJoueur + " : le deck " + nomDeck + " a été creé");
 				while(finBl1==false){
@@ -58,7 +67,7 @@ public class main {
 		System.out.println("Voulez-vous creer un match ? oui(1)/non(2) ");
 		int reponse = sc4.nextInt();
 		if(reponse==1) {
-			DemandeMatch demandeMatch = new DemandeMatchIMPL();
+			DemandeMatch demandeMatch = new DemandeMatchIMPL(deckRepository);
 			Scanner sc5 = new Scanner(System.in);
 			System.out.println("entrez le numero du match : "); // à incrémenter une fois la base de donnée créée
 			int noMatch = sc5.nextInt();
@@ -94,4 +103,4 @@ public class main {
 		}
 	}	
 
-}
+}*/

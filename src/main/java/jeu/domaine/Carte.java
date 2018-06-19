@@ -1,12 +1,22 @@
 package jeu.domaine;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Carte {
 
 	//Classe Deck
+	
+	@ManyToOne (cascade=CascadeType.ALL)
 	Deck deck; 
 	
 	
 	//variable de la classe Carte 
+	@Id
 	int noCarte;
 	String nomCarte;
 	int puissance;

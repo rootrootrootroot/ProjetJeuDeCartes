@@ -3,14 +3,23 @@ package jeu.domaine;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Match {
 
 		//Créations des collections Joueurs et Decks
+		@OneToMany(mappedBy="match")
 		Collection<Joueur> joueurs = new ArrayList<Joueur>();
-		Collection<Deck> decks = new ArrayList<Deck>();
+		
 		
 		
 		//Variable de la function Match
+		@Id
 		int noMatch; 
 		Date dateMatch;
 		
@@ -31,18 +40,7 @@ public class Match {
 		}
 		
 		
-		//function Decks
-		public Collection<Deck> getDecks() {
-			return decks;
-		}
-		public void setDecks(Collection<Deck> decks) {
-			this.decks = decks;
-			
-		}
-		public void addDeck(Deck deck) {
-			decks.add(deck);
-			deck.setMatch(this);
-		}
+
 		
 		
 		//Lien joueurs 
@@ -71,10 +69,7 @@ public class Match {
 		}
 		
 		
-		public String toString2() {
-			return "Le Match n* "+ noMatch +" commencera le "+ dateMatch+ " contiendra les " + decks;
-		}
-	
+
 	
 
 }

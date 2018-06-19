@@ -61,7 +61,7 @@ public class main {
 		guillaume.setNbDefaite(256);
 		guillaume.setNbNull(12);
 		guillaume.addDeck(deck1);
-		match1.addJoueur(guillaume);
+		match1.addJoueur1(guillaume);
 		Joueur asmae = new Joueur();
 		asmae.setNoJoueur(2);
 		asmae.setPseudo("As");
@@ -69,7 +69,7 @@ public class main {
 		asmae.setNbDefaite(57);
 		asmae.setNbNull(10);
 		asmae.addDeck(deck2);
-		match1.addJoueur(asmae);
+		match1.addJoueur2(asmae);
 		
 		
 		//Affichage

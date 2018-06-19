@@ -3,21 +3,31 @@ package jeu.domaine;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+@Entity
 public class Joueur {
 	
 	//appel de la fonction match et Joueur
-	Match match  ; 
-	Deck deck;
+	@ManyToOne (cascade=CascadeType.ALL)
+	Match match; 
+	//@OneToMany
+	//Deck deck;
 	// création de la collection decks 
+	@OneToMany(mappedBy="joueur")
 	Collection<Deck> decks= new ArrayList<Deck>();
 	//variable JOueur 
+	@Id
 	int noJoueur;
 	String pseudo;
 	int nbVictoire;
 	int nbDefaite;
 	int nbNull;
 	
-	
+/*	
 	public Deck getDeck() {
 		return deck;
 	}
@@ -25,7 +35,7 @@ public class Joueur {
 	public void setDeck(Deck deck) {
 		this.deck = deck;
 	}
-
+*/
 	public void setDecks(Collection<Deck> decks) {
 		this.decks = decks;
 	}

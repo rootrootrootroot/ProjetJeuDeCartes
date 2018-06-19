@@ -1,18 +1,28 @@
 package jeu.domaine;
 
 import java.util.ArrayList;
-import java.util.Collection; 
+import java.util.Collection;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne; 
+@Entity
 public class Deck {
 	//Classe Joueur et Match
+	@ManyToOne (cascade = CascadeType.ALL)
 	Joueur joueur;
+	@ManyToOne 
 	Match match; 
-	
+	@Id
 	int noDeck; 
 	String nomDeck; 
 	int nbCarte;
 
 	//création de la collection 
+	@OneToMany (cascade=CascadeType.ALL, mappedBy="deck")
 	Collection<Carte> cartes = new ArrayList<Carte>();
 	
 	

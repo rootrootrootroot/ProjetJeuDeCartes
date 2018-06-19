@@ -6,7 +6,19 @@ import java.util.*;
 
 
 public class CreationDeckIMPL implements CreationDeck {
-	
+	DeckRepository deckRepository;
+	CartesRepository cartesRepository;
+	JoueurRepository joueurRepository;
+
+	public CreationDeckIMPL(CartesRepository cartesRepository, DeckRepository deckRepository, JoueurRepository joueurRepository) {
+		super();
+		this.cartesRepository = cartesRepository;
+		this.deckRepository = deckRepository;
+		this.joueurRepository = joueurRepository;
+	}
+
+
+
 
 	@Override
 	public  Deck addDeck(String nomDeck, String nomJoueur) {
@@ -14,9 +26,8 @@ public class CreationDeckIMPL implements CreationDeck {
 		deck.setNomDeck(nomDeck);
 		Joueur joueur = new Joueur();
 		joueur.setPseudo(nomJoueur);
-		deck.setJoueur(joueur);
-		joueur.setDeck(deck);
-		
+		joueur.addDeck(deck);
+		deckRepository.save(deck);
 		return deck;
 	}
 	
@@ -27,12 +38,15 @@ public class CreationDeckIMPL implements CreationDeck {
 		deck.setNoDeck(noDeck);
 		deck.setNomDeck(nomDeck);
 		deck.setNbCarte(nbCarte);
+		deckRepository.save(deck);
 		return deck;
 	}
 
 	@Override
 	public boolean addCarte(Carte carte, Deck deck) {
 		deck.addCarte(carte);
+		deckRepository.save(deck);
+		cartesRepository.save(carte);
 		return false;
 	}
 
